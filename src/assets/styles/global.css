@@ -1,0 +1,48 @@
+.menu-item-image {
+  transition: transform 0.5s ease;
+}
+
+.menu-item:hover .menu-item-image {
+  transform: scale(1.05);
+}
+
+/* Efeito de card */
+.menu-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a barra de navegação */
+.menu-nav {
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #fef3c7;
+}
+
+.menu-nav::-webkit-scrollbar {
+  height: 6px;
+}
+
+.menu-nav::-webkit-scrollbar-track {
+  background: #fef3c7;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+  background-color: #d97706;
+  border-radius: 20px;
+}
+
+/* Efeito ativo */
+.menu-nav-item.active {
+  color: #92400e;
+  font-weight: bold;
+}
+
+.menu-nav-item.active svg {
+  transform: scale(1.1);
+  color: #b45309;
+}
