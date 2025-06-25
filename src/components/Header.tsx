@@ -20,7 +20,7 @@ const Header = () => {
             <img 
               src="/images/logo.jpeg" 
               alt="Hanami Cafeteria" 
-              className="h-12 object-contain"
+              className="h-12 object-contain border-2 border-amber-50 rounded-full"
             />
           </Link>
           
