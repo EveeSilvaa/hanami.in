@@ -1,55 +1,85 @@
+import { useState } from 'react';
+import { HiMenu, HiX } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-
 
 const Header = () => {
-    return (
-        <header className="bg-amber-900 text-amber-50 shadow-md">
-            <div className="container mx-auto px-4 py-4">
-                <div className="flex justify-between items-center">
-                    <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1}}
-                        transition={{ duration: 0.5}}
-                    >
-                     <Link to="/" className="flex items-left space-x-2">
-                        <img 
-                            src="/images/logo.jpeg" 
-                            alt="Hanami Cafeteria Logo" 
-                            className="h-12 object-contain border-2 border-amber-200 rounded-full"
-                        />
-                     </Link>
-                    </motion.div>
+  // Estado para controlar a visibilidade do menu mobile
+  // isMenuOpen inicia como false, ou seja, o menu está fechado
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-                    <nav className="hidden md:flex space-x-6">
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <header className="bg-amber-800 text-amber-50 shadow-md">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          {/* Logo e links desktop */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/images/logo-hanami.png" 
+              alt="Hanami Cafeteria" 
+              className="h-12 object-contain"
+            />
+          </Link>
+          
+          {/* Menu desktop (hidden on mobile) */}
+          <nav className="hidden md:flex space-x-6">
+            <Link to="/" className="px-3 py-2 rounded hover:bg-amber-700 transition">
+              Home
+            </Link>
+            <Link to="/menu" className="px-3 py-2 rounded hover:bg-amber-700 transition">
+              Cardápio
+            </Link>
+            <Link to="/sobre" className="px-3 py-2 rounded hover:bg-amber-700 transition">
+              Sobre
+            </Link>
+          </nav>
+
+          {/* Botão mobile (hidden on desktop) */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+            aria-label="Menu mobile"
+          >
+            {isMenuOpen ? (
+              <HiX className="h-6 w-6 text-amber-50" />
+            ) : (
+              <HiMenu className="h-6 w-6 text-amber-50" />
+            )}
+          </button>
+        </div>
+
+        {/* Menu mobile (aparece quando isMenuOpen = true) */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 space-y-2">
             <Link 
               to="/" 
-              className="px-3 py-2 rounded hover:bg-amber-700 transition"
+              className="block px-3 py-2 rounded hover:bg-amber-700 transition"
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
-            <Link to="/sobre" className="px-3 py-2 rounded hover:bg-amber-700 transition"
-            >
-              Sobre
-            </Link>
             <Link 
               to="/menu" 
-              className="px-3 py-2 rounded hover:bg-amber-700 transition"
+              className="block px-3 py-2 rounded hover:bg-amber-700 transition"
+              onClick={() => setIsMenuOpen(false)}
             >
               Cardápio
             </Link>
-          </nav>
-          
-          <button className="md:hidden">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+            <Link 
+              to="/sobre" 
+              className="block px-3 py-2 rounded hover:bg-amber-700 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sobre
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   );
 };
 
 export default Header;
-                
