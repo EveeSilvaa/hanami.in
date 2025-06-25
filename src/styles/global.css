@@ -46,3 +46,29 @@
   transform: scale(1.1);
   color: #b45309;
 }
+
+/* Efeito de zoom suave nas imagens */
+.gallery-image {
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Destaque para títulos */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+}
