@@ -3,9 +3,9 @@ import { FaCoffee, FaHeart, FaStore } from 'react-icons/fa';
 
 const AboutPage = () => {
   const galleryImages = [
-    { id: 1, src: 'public/images/fotoambiente.jpeg', alt: 'Interior da cafeteria' },
-    { id: 2, src: 'public/images/ambiente2.jpeg', alt: 'Área externa' },
-    { id: 3, src: 'public/images/ambiente3.jpeg', alt: 'Balcão de atendimento' },
+    { id: 1, src: '/images/fotoambiente.jpeg', alt: 'Interior da cafeteria' },
+    { id: 2, src: '/images/ambiente2.jpeg', alt: 'Área externa' },
+    { id: 3, src: '/images/ambiente3.jpeg', alt: 'Balcão de atendimento' },
     { id: 4, src: '/images/ambiente-4.jpg', alt: 'Nosso café especial' },
   ];
 
