@@ -14,7 +14,7 @@ const Header = () => {
                     >
                      <Link to="/" className="flex items-left space-x-2">
                         <img 
-                            src="/logo.jpeg" 
+                            src="/images/logo.jpeg" 
                             alt="Hanami Cafeteria Logo" 
                             className="h-12 object-contain border-2 border-amber-200 rounded-full"
                         />
