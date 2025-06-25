@@ -18,7 +18,7 @@ const Header = () => {
           {/* Logo e links desktop */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/logo-hanami.png" 
+              src="/images/logo.jpeg" 
               alt="Hanami Cafeteria" 
               className="h-12 object-contain"
             />
