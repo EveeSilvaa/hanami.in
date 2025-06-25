@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import QRCodeModal from './components/QRCodeModal';
 import AnimatedRoute from './components/AnimatedRoute';
+import AboutPage from './components/AboutPage';
 
 const App = () => {
   return (
@@ -21,6 +22,11 @@ const App = () => {
             <Route path="/menu" element={
               <AnimatedRoute>
                 <Menu />
+              </AnimatedRoute>
+            } />
+            <Route path="/sobre" element={
+              <AnimatedRoute>
+                <AboutPage />
               </AnimatedRoute>
             } />
           </Routes>

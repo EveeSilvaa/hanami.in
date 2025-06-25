@@ -28,6 +28,10 @@ const Header = () => {
             >
               Home
             </Link>
+            <Link to="/sobre" className="px-3 py-2 rounded hover:bg-amber-700 transition"
+            >
+              Sobre
+            </Link>
             <Link 
               to="/menu" 
               className="px-3 py-2 rounded hover:bg-amber-700 transition"
