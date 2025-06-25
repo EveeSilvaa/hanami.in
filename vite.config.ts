@@ -5,6 +5,10 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  },
   css: {
     postcss: {
       plugins: [
