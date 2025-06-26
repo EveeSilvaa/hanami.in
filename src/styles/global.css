@@ -72,3 +72,56 @@
   height: 3px;
   background: linear-gradient(90deg, #d97706, #f59e0b);
 }
+
+/* Animação para o modal */
+.modal-image {
+  transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.02);
+}
+
+/* Botão do WhatsApp */
+.whatsapp-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Transição suave para o drawer */
+.cart-drawer {
+  transition: transform 0.3s ease-out;
+}
+
+/* Efeito de hover nos botões */
+.cart-item-button:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll personalizado para a lista de itens */
+.cart-items-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 119, 6, 0.5);
+  border-radius: 3px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-item {
+  animation: fadeIn 0.5s ease-out forwards;
+}

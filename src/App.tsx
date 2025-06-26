@@ -5,10 +5,14 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import QRCodeModal from './components/QRCodeModal';
 import AnimatedRoute from './components/AnimatedRoute';
-import AboutPage from './components/AboutPage';
+import AboutPage from './pages/AboutPage';
+import { CartProvider } from './contexts/CartContext';
+
+
 
 const App = () => {
   return (
+  <CartProvider>
     <Router>
       <div className="flex flex-col min-h-screen bg-amber-50">
         <Header />
@@ -35,6 +39,7 @@ const App = () => {
         <QRCodeModal />
       </div>
     </Router>
+  </CartProvider >
   );
 };
 
