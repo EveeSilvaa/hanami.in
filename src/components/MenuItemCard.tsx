@@ -37,7 +37,7 @@ export const MenuItemCard = ({ item }: { item: any }) => {
             category: item.category,
             image: item.image
           })}
-          className="w-full bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition-colors"
+          className="w-full bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition-all"
         >
           Adicionar à sacola
         </button>

@@ -1,8 +1,8 @@
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
 import { useCart } from '../contexts/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaWhatsapp } from "react-icons/fa";
-
+import { FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
 
 export const CartDrawer = () => {
   const {
@@ -17,15 +17,32 @@ export const CartDrawer = () => {
     formatCurrency
   } = useCart();
 
+  const [tableNumber, setTableNumber] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('dinheiro');
+
   const sendToWhatsApp = () => {
-    const phone = "559191459148"; // Formato: 5511999999999
-    const message = `Olá Hanami! Gostaria de pedir:\n\n${
-      cart.map(item => 
-        `${item.quantity}x ${item.name} - ${formatCurrency(item.price * item.quantity)}`
-      ).join('\n')
-    }\n\n*Total: ${formatCurrency(totalPrice)}*`;
+    if (!tableNumber) {
+      alert('Por favor, informe o número da mesa');
+      return;
+    }
+
+    const phone = "559191459148";
+    const itemsText = cart.map(item => 
+      `➡ ${item.quantity}x ${item.name} - ${formatCurrency(item.price * item.quantity)}`
+    ).join('\n');
+    
+    const message = `*Olá hanami! Gostaria de pedir:*\n\n` +
+      `*Mesa:* ${tableNumber}\n` +
+      `*Forma de Pagamento:* ${paymentMethod}\n\n` +
+      `*Itens do Pedido:*\n${itemsText}\n\n` +
+      `*Total:* ${formatCurrency(totalPrice)}\n\n` +
+      `Obrigado pelo seu pedido!`;
     
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  const getImagePath = (item: any) => {
+    return `/images/menu/${item.image}`;
   };
 
   return (
@@ -83,53 +100,84 @@ export const CartDrawer = () => {
                     </button>
                   </div>
                 ) : (
-                  <ul className="divide-y">
-                    {cart.map(item => (
-                      <li key={item.id} className="py-4">
-                        <div className="flex gap-4">
-                          {item.image && (
+                  <>
+                    <div className="mb-6">
+                      <label className="block text-sm font-medium text-amber-700 mb-1">
+                        Número da Mesa
+                      </label>
+                      <input
+                        type="text"
+                        value={tableNumber}
+                        onChange={(e) => setTableNumber(e.target.value)}
+                        className="w-full p-2 border border-amber-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
+                        placeholder="Ex: 5"
+                      />
+                    </div>
+
+                    <div className="mb-6">
+                      <label className="block text-sm font-medium text-amber-700 mb-1">
+                        Forma de Pagamento
+                      </label>
+                      <select
+                        value={paymentMethod}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        className="w-full p-2 border border-amber-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
+                      >
+                        <option value="dinheiro">Dinheiro</option>
+                        <option value="cartão">Cartão</option>
+                        <option value="pix">PIX</option>
+                      </select>
+                    </div>
+
+                    <ul className="divide-y">
+                      {cart.map(item => (
+                        <li key={item.id} className="py-4">
+                          <div className="flex gap-4">
                             <img 
-                              src={`/menu/${item.category.toLowerCase()}/${item.image}`} 
+                              src={getImagePath(item)}
                               alt={item.name}
                               className="w-16 h-16 object-cover rounded"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
+                              }}
                             />
-                          )}
-                          <div className="flex-grow">
-                            <div className="flex justify-between">
-                              <h3 className="font-medium">{item.name}</h3>
-                              <span className="font-medium">
-                                {formatCurrency(item.price * item.quantity)}
-                              </span>
-                            </div>
-                            <p className="text-sm text-gray-500 mb-2">{item.category}</p>
-                            <div className="flex justify-between items-center">
-                              <div className="flex items-center border rounded-lg overflow-hidden">
+                            <div className="flex-grow">
+                              <div className="flex justify-between">
+                                <h3 className="font-medium">{item.name}</h3>
+                                <span className="font-medium">
+                                  {formatCurrency(item.price * item.quantity)}
+                                </span>
+                              </div>
+                              <p className="text-sm text-gray-500 mb-2">{item.category}</p>
+                              <div className="flex justify-between items-center">
+                                <div className="flex items-center border rounded-lg overflow-hidden">
+                                  <button 
+                                    onClick={() => decreaseQuantity(item.id)}
+                                    className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition-colors"
+                                  >
+                                    <FiMinus size={14} />
+                                  </button>
+                                  <span className="px-3">{item.quantity}</span>
+                                  <button 
+                                    onClick={() => increaseQuantity(item.id)}
+                                    className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition-colors"
+                                  >
+                                    <FiPlus size={14} />
+                                  </button>
+                                </div>
                                 <button 
-                                  onClick={() => decreaseQuantity(item.id)}
-                                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition-colors"
+                                  onClick={() => removeItem(item.id)}
+                                  className="text-red-500 hover:text-red-700 p-2 transition-colors"
                                 >
-                                  <FiMinus size={14} />
-                                </button>
-                                <span className="px-3">{item.quantity}</span>
-                                <button 
-                                  onClick={() => increaseQuantity(item.id)}
-                                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition-colors"
-                                >
-                                  <FiPlus size={14} />
+                                  <FiTrash2 size={16} />
                                 </button>
                               </div>
-                              <button 
-                                onClick={() => removeItem(item.id)}
-                                className="text-red-500 hover:text-red-700 p-2 transition-colors"
-                              >
-                                <FiTrash2 size={16} />
-                              </button>
                             </div>
                           </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
                 )}
               </div>
 
@@ -143,9 +191,7 @@ export const CartDrawer = () => {
                     onClick={sendToWhatsApp}
                     className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
                   >
-                    <FaWhatsapp
-                      className="w-5 h-5" 
-                    />
+                    <FaWhatsapp size={20} />
                     Enviar Pedido
                   </button>
                 </div>

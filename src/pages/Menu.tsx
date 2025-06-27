@@ -32,10 +32,10 @@ const Menu = () => {
 
         {/* Navegação por ícones */}
         <div className="flex justify-center mb-12 overflow-x-auto pb-4">
-          <div className="flex space-x-4 md:space-x-8">
+          <div className="flex space-x-2 md:space-x-7">
             <button 
               onClick={() => scrollToSection('sandwiches')}
-              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[70px]"
+              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[50px]"
             >
               <GiSandwich className="text-3xl md:text-4xl mb-2" />
               <span className="text-sm md:text-base">Sanduíches</span>
@@ -51,7 +51,7 @@ const Menu = () => {
             
             <button 
               onClick={() => scrollToSection('cafes')}
-              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[70px]"
+              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[60px]"
             >
               <FaCoffee className="text-3xl md:text-4xl mb-2" />
               <span className="text-sm md:text-base">Cafés</span>
@@ -59,7 +59,7 @@ const Menu = () => {
             
             <button 
               onClick={() => scrollToSection('doces')}
-              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[70px]"
+              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[60px]"
             >
               <FaIceCream className="text-3xl md:text-4xl mb-2" />
               <span className="text-sm md:text-base">Doces</span>
@@ -67,7 +67,7 @@ const Menu = () => {
             
             <button 
               onClick={() => scrollToSection('acais')}
-              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[70px]"
+              className="flex flex-col items-center text-amber-700 hover:text-amber-900 transition min-w-[60px]"
             >
               <TbCup className="text-3xl md:text-4xl mb-2" />
               <span className="text-sm md:text-base">Açaí</span>

@@ -62,13 +62,13 @@
           "name": "Tapioca com manteiga e ovo",
           "price": 7.5,
           "image": "/tapiocas/tapiocaCovos.jpeg",
-          "description": "Tapioca recheada manteiga e ovos fritos perfeito"
+          "description": "Tapioca recheada manteiga e ovos fritos, perfeito para você"
         },
         {
             "name": "Tapioca com manteiga e queijo",
             "price": 7.0,
             "image": "/tapiocas/tapiocaCmanteigaQueijo.jpg",
-            "description": "Tapioca recheada com manteiga e queijo mussarela derretido"
+            "description": "Tapioca recheada com manteiga, queijo e mussarela derretida"
         },
         {
             "name": "Tapioca com manteiga e presunto",
@@ -228,19 +228,20 @@
           "name": "Coca-cola",
           "price": 3.0,
           "image": "/bebidas/refrigerante600.jpeg",
-          "description": "",
+          "description": "Coca-cola geladinha de 600ml",
           "sizes": ["600ml"]
         },
         {
             "name": "Coca-cola lata",
             "price": 5.0,
             "image": "/bebidas/refrigeranteLata.jpeg",
-            "description": " "
+            "description": "Coca-cola lata geladinha, perfeita nos dias quentes "
         },
         {
             "name": "Coca-cola",
             "price": 7.0, 
             "image": "/bebidas/refrigerante200.jpeg",
+            "description": "Coca-cola geladinha de 200ml", 
             "sizes": ["200ml"]
         },
         {

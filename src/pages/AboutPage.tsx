@@ -6,7 +6,7 @@ const AboutPage = () => {
     { id: 1, src: '/images/fotoambiente.jpeg', alt: 'Interior da cafeteria' },
     { id: 2, src: '/images/ambiente2.jpeg', alt: 'Área externa' },
     { id: 3, src: '/images/ambiente3.jpeg', alt: 'Balcão de atendimento' },
-    { id: 4, src: '/images/ambiente-4.jpg', alt: 'Nosso café especial' },
+    { id: 4, src: '/images/ambiente4.jpeg', alt: 'Nosso café especial' },
   ];
 
   return (
@@ -60,11 +60,11 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <img 
+            {/* <img 
               src="/images/historia.jpg" 
               alt="Fundadores da Hanami" 
               className="rounded-lg shadow-xl w-full h-auto max-h-96 object-cover"
-            />
+            /> */}
           </motion.div>
         </div>
 
