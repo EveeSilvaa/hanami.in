@@ -1,6 +1,8 @@
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
 import { useCart } from '../contexts/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaWhatsapp } from "react-icons/fa";
+
 
 export const CartDrawer = () => {
   const {
@@ -16,7 +18,7 @@ export const CartDrawer = () => {
   } = useCart();
 
   const sendToWhatsApp = () => {
-    const phone = "559186273009"; // Formato: 5511999999999
+    const phone = "559191459148"; // Formato: 5511999999999
     const message = `Olá Hanami! Gostaria de pedir:\n\n${
       cart.map(item => 
         `${item.quantity}x ${item.name} - ${formatCurrency(item.price * item.quantity)}`
@@ -87,7 +89,7 @@ export const CartDrawer = () => {
                         <div className="flex gap-4">
                           {item.image && (
                             <img 
-                              src={`/images/menu/${item.category.toLowerCase()}/${item.image}`} 
+                              src={`/menu/${item.category.toLowerCase()}/${item.image}`} 
                               alt={item.name}
                               className="w-16 h-16 object-cover rounded"
                             />
@@ -141,10 +143,8 @@ export const CartDrawer = () => {
                     onClick={sendToWhatsApp}
                     className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
                   >
-                    <img 
-                      src="/images/whatsapp-icon.png" 
+                    <FaWhatsapp
                       className="w-5 h-5" 
-                      alt="WhatsApp" 
                     />
                     Enviar Pedido
                   </button>
