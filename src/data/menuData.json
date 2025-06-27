@@ -1,0 +1,266 @@
+{
+  "sections": [
+    {
+      "id": "sandwiches",
+      "title": "Sanduíches",
+      "items": [
+        {
+          "name": "Pão com manteiga",
+          "price": 3.0,
+          "image": "/paos/paoCmanteiga.jpeg",
+          "description": "Pão francês fresquinho com generosa camada de manteiga derretida",
+          "ingredients": "Pão francês, manteiga"
+        },
+        {
+          "name": "Pão com ovo",
+          "price": 5.5,
+          "image": "/paos/PaoCOvo.jpeg",
+          "description": "Pão quentinho com ovos mexidos cremosos",
+          "ingredients": "Pão francês, manteiga, ovo frito"
+        },
+        {
+          "name": "Pão com Manteiga e Queijo",
+          "price": 5.0,
+          "image": "/paos/paoQueijo.avif",
+          "description": "Pão crocante com manteiga e queijo mussarela derretido",
+          "ingredients": "Pão francês, manteiga, queijo mussarela"
+        },
+        {
+          "name": "Pão com manteiga e presunto",
+          "price": 5.0,
+          "image": "/paos/paoManteigaPresunto.jpeg",
+          "description": "Pão fresquinho com manteiga e fatias de presunto selecionado",
+          "ingredients": "Pão francês, manteiga, presunto"
+        },
+        {
+          "name": "Queijo quente",
+          "price": 6.5,
+          "image": "/paos/queijoQuente.jpeg",
+          "description": "Pão tostado com queijo derretido gratinado",
+          "ingredients": "Pão de forma, queijo mussarela"
+        },
+        {
+          "name": "Misto Quente",
+          "price": 7.5,
+          "image": "/paos/mistoQuente.jpeg",
+          "description": "Clássico misto quente crocante com queijo e presunto derretidos",
+          "ingredients": "Pão de forma, queijo, presunto"
+        }
+      ]
+    },
+    {
+      "id": "tapiocas",
+      "title": "Tapiocas",
+      "items": [
+        {
+          "name": "Tapioca com manteiga",
+          "price": 5.0,
+          "image": "/tapiocas/tapioca.jpeg",
+          "description": "Tapioca tradicional feita na hora com manteiga da terra"
+        },
+        {
+          "name": "Tapioca com manteiga e ovo",
+          "price": 7.5,
+          "image": "/tapiocas/tapiocaCovos.jpeg",
+          "description": "Tapioca recheada manteiga e ovos fritos perfeito"
+        },
+        {
+            "name": "Tapioca com manteiga e queijo",
+            "price": 7.0,
+            "image": "/tapiocas/tapiocaCmanteigaQueijo.jpg",
+            "description": "Tapioca recheada com manteiga e queijo mussarela derretido"
+        },
+        {
+            "name": "Tapioca com manteiga e presunto",
+            "price": 6.0,
+            "image": "/tapiocas/tapiocaCpresunto.jpeg",
+            "description": "Tapioca recheada com manteiga e fatias de presunto selecionado"
+        },
+        {
+          "name": "Tapioca com manteiga, queijo e presunto",
+          "price": 9.0,
+          "image": "/tapiocas/tapiocaCqueijoEpresunto.jpeg",
+          "description": "Tapioca recheada com queijo mussarela e presunto, sabor irresistível"
+        },
+        {
+            "name": "Tapioca com manteiga, queijo e ovo",
+            "price": 9.5,
+            "image": "/tapiocas/queijoOvo.jpg",
+            "description": "Tapioca recheada com queijo mussarela e ovo frito, combinação perfeita"
+        },
+        {
+            "name": "Tapioca com manteiga, presunto e ovo",
+            "price": 9.0,
+            "image": "/tapiocas/ovoPresunto.jpg",
+            "description": "Tapioca recheada com presunto e ovo frito, sabor marcante"
+        },
+        {
+            "name": "Tapioca com manteiga, queijo, presunto e ovo",
+            "price": 11.0,
+            "image": "/tapiocas/presuntoQueijpeOvo.jpg",
+            "description": "Tapioca recheada com queijo, presunto e ovo frito, combinação completa"
+        },
+        {
+            "name": "Cuzcuz com ovo",
+            "price": 8.0,
+            "image": "/cuzcuz/cuzcuzCovo.jpeg",
+            "description": "Cuscuz nordestino macio com ovo frito, servido quentinho"
+        },
+        {
+            "name": "Omelete Simples",
+            "price": 7.0,
+            "image": "/paos/omelete.jpeg",
+            "description": "Omelete leve e fofinha, feita com ovos frescos, perfeita para o café da manhã"
+        },
+        {
+            "name": "Ovos mexidos",
+            "price": 7.0,
+            "image": "/paos/ovosMexidos.jpeg",
+            "description": "Ovos mexidos cremosos, preparados com carinho, ideais para acompanhar seu café"
+        },
+        {
+            "name": "Farofa de ovos",
+            "price": 9.0,
+            "image": "/paos/farofaOvo.jpeg",
+            "description": "Farofa crocante com ovos, perfeita para acompanhar qualquer refeição"
+        }
+      ]
+    },
+    {
+      "id": "cafes",
+      "title": "Cafés Especiais",
+      "items": [
+        {
+          "name": "Expresso",
+          "price": 5.0,
+          "image": "/cafes/cafeExpresso.jpeg",
+          "description": "Café expresso intenso em xícara pequena, servido tradicionalmente"
+        },
+        {
+            "name": "Café Puro",
+            "price": 4.0,
+            "image": "/cafes/cafePuro.jpeg",
+            "description": "Café coado fresco, com sabor encorpado e aroma marcante"
+        },
+        {
+            "name": "Café com Leite",
+            "price": 5.0,
+            "image": "/cafes/cafeCleite.jpeg",
+            "description": "Café expresso com leite vaporizado, cremoso e suave"
+        },
+        {
+            "name": "Leite Quente",
+            "price": 4.0,
+            "image": "/cafes/leiteQuente.jpeg",
+            "description": "Leite integral aquecido, perfeito para acompanhar seu café"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 7.5,
+          "image": "/cafes/capputino.jpeg",
+          "description": "Café expresso com leite vaporizado e espuma de leite, polvilhado com canela"
+        },
+        {
+          "name": "Café especial",
+          "price": 10.0,
+          "image": "/cafes/cafeEspecial.jpeg",
+          "description": "Nosso blend exclusivo de grãos especiais, com notas de chocolate e caramelo"
+        },
+        {
+            "name": "Achocolatado",
+            "price": 6.0,
+            "image": "/cafes/achocolatado.jpeg",
+            "description": "Bebida quente de chocolate cremoso, perfeita para aquecer o dia"
+        }
+      ]
+    },
+    {
+      "id": "doces",
+      "title": "Doces",
+      "items": [
+        {
+          "name": "Bolo de chocolate",
+          "price": 6.0,
+          "image": "/doces/boloChocolate.jpeg",
+          "description": "Fatia generosa de bolo de chocolate úmido com calda",
+          "ingredients": "Chocolate, farinha, ovos, açúcar"
+        },
+        {
+          "name": "Torta de limão",
+          "price": 7.0,
+          "image": "/doces/tortaLimao.jpeg",
+          "description": "Torta de limão com base crocante de biscoito e merengue dourado",
+          "ingredients": "Limão, leite condensado, biscoito, merengue"
+        },
+        {
+            "name": "Donuts",
+            "price": 5.0,
+            "image": "/doces/donuts.jpeg",
+            "description": "Donuts fresquinhos cobertos com chocolate e confeitos coloridos",
+            "ingredients": "Farinha, açúcar, ovos, chocolate, confeitos"
+        },
+        {
+            "name": "Brigadeiro",
+            "price": 3.0,
+            "image": "/doces/brigadeiro.jpeg",
+            "description": "Docinho brasileiro de chocolate enrolado com granulado"
+        }
+      ]
+    },
+    {
+      "id": "acais",
+      "title": "Açaí",
+      "items": [
+        {
+          "name": "Açaí Tradicional",
+          "price": 12.0,
+          "image": "/acai/tradicionalAcai.avif",
+          "description": "Açaí puro acompanhado de banana e granola caseira",
+          "sizes": ["300ml", "500ml", "700ml"]
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "title": "Bebidas",
+      "items": [
+        {
+          "name": "Coca-cola",
+          "price": 3.0,
+          "image": "/bebidas/refrigerante600.jpeg",
+          "description": "",
+          "sizes": ["600ml"]
+        },
+        {
+            "name": "Coca-cola lata",
+            "price": 5.0,
+            "image": "/bebidas/refrigeranteLata.jpeg",
+            "description": " "
+        },
+        {
+            "name": "Coca-cola",
+            "price": 7.0, 
+            "image": "/bebidas/refrigerante200.jpeg",
+            "sizes": ["200ml"]
+        },
+        {
+            "name": "Suco natural Jarra",
+            "price": 12.0, 
+            "image": "/bebidas/sucoJarra.jpeg",
+            "description": " "
+        },
+        {
+            "name": "Suco copo",
+            "price": 5.0,
+            "image": "/bebidas/sucoCopo.jpeg",
+            "description": " "
+        },
+        {
+            "name": "Água Mineral",
+            "price": 3.0,
+            "image": "/bebidas/aguaMineral.jpg"
+        }
+      ]
+    }
+  ]
+}

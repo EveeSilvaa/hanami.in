@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
-import QRCodeModal from './components/QRCodeModal';
 import AnimatedRoute from './components/AnimatedRoute';
 import AboutPage from './pages/AboutPage';
 import { CartProvider } from './contexts/CartContext';
@@ -36,7 +35,6 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
-        <QRCodeModal />
       </div>
     </Router>
   </CartProvider >

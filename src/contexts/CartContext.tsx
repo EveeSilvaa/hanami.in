@@ -1,7 +1,5 @@
-import { createContext, useContext, useState,  useMemo } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import type { ReactNode } from 'react';
-
-
 
 interface CartItem {
   id: string;
@@ -31,41 +29,45 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // salva o  carrinho
   const saveCart = (newCart: CartItem[]) => {
     setCart(newCart);
     localStorage.setItem('hanamiCart', JSON.stringify(newCart));
   };
 
-  // Função para formatar valores em BRL
   const formatCurrency = (value: number) => {
     return value.toLocaleString('pt-BR', {
       style: 'currency',
-      currency: 'BRL'
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
     });
   };
 
+  const preciseAdd = (a: number, b: number) => {
+    return parseFloat((a + b).toFixed(2));
+  };
+
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
-  const existingItemIndex = cart.findIndex(i => i.id === item.id);
-  
-  if (existingItemIndex >= 0) {
-    // Item já existe, atualiza a quantidade
-    const newCart = [...cart];
-    newCart[existingItemIndex] = {
-      ...newCart[existingItemIndex],
-      quantity: newCart[existingItemIndex].quantity + 1
-    };
-    saveCart(newCart);
-  } else {
-    // Item novo, adiciona ao carrinho
-    saveCart([...cart, { ...item, quantity: 1 }]);
-  }
-  setIsCartOpen(true);
-};
+    const existingItemIndex = cart.findIndex(i => i.id === item.id);
+    
+    if (existingItemIndex >= 0) {
+      const newCart = [...cart];
+      newCart[existingItemIndex] = {
+        ...newCart[existingItemIndex],
+        quantity: newCart[existingItemIndex].quantity + 1
+      };
+      saveCart(newCart);
+    } else {
+      saveCart([...cart, { ...item, quantity: 1 }]);
+    }
+    setIsCartOpen(true);
+  };
 
   const totalItems = useMemo(() => cart.reduce((sum, item) => sum + item.quantity, 0), [cart]);
-  const totalPrice = useMemo(() => cart.reduce((sum, item) => sum + (item.price * item.quantity), 0), [cart]);
-
+  const totalPrice = useMemo(() => 
+    cart.reduce((sum, item) => preciseAdd(sum, item.price * item.quantity), 0), 
+    [cart]
+  );
 
   const increaseQuantity = (id: string) => {
     saveCart(cart.map(item => 
@@ -104,7 +106,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         totalPrice,
         isCartOpen,
         toggleCart,
-        formatCurrency // Adicionando a função de formatação
+        formatCurrency
       }}
     >
       {children}
