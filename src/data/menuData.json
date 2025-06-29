@@ -49,7 +49,7 @@
         {
           "name": "Pão com manteiga, queijo, ovo e presunto",
           "price": 9.5,
-          "image": "/paos/OvoQueijoPresunto.jpg",
+          "image": "/paos/PresuntoOvoQueijo.jpg",
           "description": "Pão fresquinho com manteiga, queijo, ovo e fatias de presunto",
           "ingredients": "Pão francês, manteiga, queijo, ovo e presunto"
         },
