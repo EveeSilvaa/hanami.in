@@ -33,15 +33,36 @@
           "ingredients": "Pão francês, manteiga, presunto"
         },
         {
+          "name": "Pão com manteiga, queijo e presunto",
+          "price": 7.5,
+          "image": "/paos/ManteigaQueijoPresunto.jpeg",
+          "description": "Pão fresquinho com manteiga, fatias de presunto e queijo selecionado",
+          "ingredients": "Pão francês, manteiga, queijo e presunto"
+        },
+        {
+          "name": "Pão com manteiga, queijo e ovo",
+          "price": 8.0,
+          "image": "/paos/OvoQueijo.jpg",
+          "description": "Pão fresquinho com manteiga, fatias de queijo e ovos mexidos",
+          "ingredients": "Pão francês, manteiga, queijo e ovo"
+        },
+        {
+          "name": "Pão com manteiga, queijo, ovo e presunto",
+          "price": 9.5,
+          "image": "/paos/OvoQueijoPresunto.jpg",
+          "description": "Pão fresquinho com manteiga, queijo, ovo e fatias de presunto",
+          "ingredients": "Pão francês, manteiga, queijo, ovo e presunto"
+        },
+        {
           "name": "Queijo quente",
-          "price": 6.5,
+          "price": 5.0,
           "image": "/paos/queijoQuente.jpeg",
           "description": "Pão tostado com queijo derretido gratinado",
           "ingredients": "Pão de forma, queijo mussarela"
         },
         {
           "name": "Misto Quente",
-          "price": 7.5,
+          "price": 4.0,
           "image": "/paos/mistoQuente.jpeg",
           "description": "Clássico misto quente crocante com queijo e presunto derretidos",
           "ingredients": "Pão de forma, queijo, presunto"
@@ -54,19 +75,19 @@
       "items": [
         {
           "name": "Tapioca com manteiga",
-          "price": 5.0,
+          "price": 3.0,
           "image": "/tapiocas/tapioca.jpeg",
           "description": "Tapioca tradicional feita na hora com manteiga da terra"
         },
         {
           "name": "Tapioca com manteiga e ovo",
-          "price": 7.5,
+          "price": 5.0,
           "image": "/tapiocas/tapiocaCovos.jpeg",
           "description": "Tapioca recheada manteiga e ovos fritos, perfeito para você"
         },
         {
             "name": "Tapioca com manteiga e queijo",
-            "price": 7.0,
+            "price": 4.5,
             "image": "/tapiocas/tapiocaCmanteigaQueijo.jpg",
             "description": "Tapioca recheada com manteiga, queijo e mussarela derretida"
         },
@@ -78,25 +99,25 @@
         },
         {
           "name": "Tapioca com manteiga, queijo e presunto",
-          "price": 9.0,
+          "price": 5.0,
           "image": "/tapiocas/tapiocaCqueijoEpresunto.jpeg",
           "description": "Tapioca recheada com queijo mussarela e presunto, sabor irresistível"
         },
         {
             "name": "Tapioca com manteiga, queijo e ovo",
-            "price": 9.5,
+            "price": 6.5,
             "image": "/tapiocas/queijoOvo.jpg",
             "description": "Tapioca recheada com queijo mussarela e ovo frito, combinação perfeita"
         },
         {
             "name": "Tapioca com manteiga, presunto e ovo",
-            "price": 9.0,
+            "price": 6.0,
             "image": "/tapiocas/ovoPresunto.jpg",
             "description": "Tapioca recheada com presunto e ovo frito, sabor marcante"
         },
         {
             "name": "Tapioca com manteiga, queijo, presunto e ovo",
-            "price": 11.0,
+            "price": 10.0,
             "image": "/tapiocas/presuntoQueijpeOvo.jpg",
             "description": "Tapioca recheada com queijo, presunto e ovo frito, combinação completa"
         },
@@ -132,31 +153,31 @@
       "items": [
         {
           "name": "Expresso",
-          "price": 5.0,
+          "price": 4.0,
           "image": "/cafes/cafeExpresso.jpeg",
           "description": "Café expresso intenso em xícara pequena, servido tradicionalmente"
         },
         {
             "name": "Café Puro",
-            "price": 4.0,
+            "price": 2.5,
             "image": "/cafes/cafePuro.jpeg",
             "description": "Café coado fresco, com sabor encorpado e aroma marcante"
         },
         {
             "name": "Café com Leite",
-            "price": 5.0,
+            "price": 3.0,
             "image": "/cafes/cafeCleite.jpeg",
             "description": "Café expresso com leite vaporizado, cremoso e suave"
         },
         {
             "name": "Leite Quente",
-            "price": 4.0,
+            "price": 3.0,
             "image": "/cafes/leiteQuente.jpeg",
             "description": "Leite integral aquecido, perfeito para acompanhar seu café"
         },
         {
           "name": "Cappuccino",
-          "price": 7.5,
+          "price": 6.5,
           "image": "/cafes/capputino.jpeg",
           "description": "Café expresso com leite vaporizado e espuma de leite, polvilhado com canela"
         },
@@ -226,7 +247,7 @@
       "items": [
         {
           "name": "Coca-cola",
-          "price": 3.0,
+          "price": 7.0,
           "image": "/bebidas/refrigerante600.jpeg",
           "description": "Coca-cola geladinha de 600ml",
           "sizes": ["600ml"]
@@ -239,7 +260,7 @@
         },
         {
             "name": "Coca-cola",
-            "price": 7.0, 
+            "price": 3.0, 
             "image": "/bebidas/refrigerante200.jpeg",
             "description": "Coca-cola geladinha de 200ml", 
             "sizes": ["200ml"]
@@ -248,13 +269,13 @@
             "name": "Suco natural Jarra",
             "price": 12.0, 
             "image": "/bebidas/sucoJarra.jpeg",
-            "description": " "
+            "description": "Suco natural 1L, nas opções: Maracuja, acerola e goiaba "
         },
         {
             "name": "Suco copo",
             "price": 5.0,
             "image": "/bebidas/sucoCopo.jpeg",
-            "description": " "
+            "description": "Suco geladinho e super saboroso"
         },
         {
             "name": "Água Mineral",

@@ -57,7 +57,7 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="border-t border-amber-800 mt-8 pt-6 text-center"
         >
-          <p>© {new Date().getFullYear()} Hanami Cafeteria. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Evellyn Silva. Todos os direitos reservados.</p>
         </motion.div>
       </div>
     </footer>
