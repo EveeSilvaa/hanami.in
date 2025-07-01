@@ -41,12 +41,12 @@ const Footer = () => {
               @hanami.in
             </a>
             <a 
-              href="https://instagram.com/hanami_cafeteria" 
+              href="https://instagram.com/yvi_maz" 
               className="block hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @hanami_cafeteria
+              @yvi_maz
             </a>
           </motion.div>
         </div>
