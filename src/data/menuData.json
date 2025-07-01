@@ -152,12 +152,6 @@
       "title": "Cafés Especiais",
       "items": [
         {
-          "name": "Expresso",
-          "price": 4.0,
-          "image": "/cafes/cafeExpresso.jpeg",
-          "description": "Café expresso intenso em xícara pequena, servido tradicionalmente"
-        },
-        {
             "name": "Café Puro",
             "price": 2.5,
             "image": "/cafes/cafePuro.jpeg",
