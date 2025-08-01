@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# Hanami Café - Cardápio Online
+## Sobre o Projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O Projeto hanami foi um idealização de um cardápio online, feito por mim com amor e dedicação para a empresa que está localizada no meu estado de origem, onde busco sempre aprimorar  a interface do projeto e entregar tanto aos clientes quanto a empresa uma aplicação agil, inovadora e intuitiva.
+o Hanami conta com um cardápio digital interativo, que permite aos clientes explorar o menu, montar pedidos, informar a mesa em que o pedido será entregue, a forma de pagamento e a adição ou exclusão de produtos. Pensei nessas aplicações como um meio de proporcionar ao cliente uma experiência agradável e intuitva.
 
-Currently, two official plugins are available:
+# Funcionalidades principais
+# Animação de Boas-vindas
+- Breve animação de uma xícara, acompanhado do nome Hanami cafeteria.
+- Transição automática para o cardapio após a animação.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📋 Cardápio Digital
+- Seções organizadas:
+  - ☕ Cafés Especiais
+  - 🥪 Sanduíches
+  - 🍰 Doces
+  - 🧇 Tapiocas
+  - 🍧 Açaí
+  - 🥤 Bebidas
 
-## Expanding the ESLint configuration
+### 🛒 Sistema de Pedidos
+- Adicionar/remover itens do carrinho
+- Ajustar quantidades
+- Visualizar resumo do pedido
+- Calcular valor total automaticamente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📤 Finalização do Pedido
+- Seleção de forma de pagamento:
+  - 💳 Cartão
+  - 💵 Dinheiro
+  - 📱 PIX
+- Indicação do número da mesa
+- Envio automático do pedido via WhatsApp para a empresa
+- Confirmação visual do pedido enviado
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Tecnologias Utilizadas
+- React
+- Typescript
+- Motion
+- javascript
+- TailwindCSS
+- css
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como Usar
+1. Acesse o cardápio online pelo link fornecido
+2. Assista à breve animação inicial
+3. Navegue pelas categorias do menu
+4. Selecione os itens desejados
+5. Ajuste quantidades se necessário
+6. Toque no ícone da sacola para ver seu pedido
+7. Selecione forma de pagamento e número da mesa
+8. Envie o pedido para nosso WhatsApp
+9. Aguarde a preparação do seu pedido!
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Personalização
+O sistema pode ser customizado com:
+- Logo e cores da Hanami Café
+- Descrições detalhadas dos produtos
+- Fotos dos itens do menu
+- Promoções sazonais
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Contato
+Para suporte ou dúvidas sobre o cardápio digital:
+- WhatsApp: [(62) 982038650]
+- Email: [evesilva.contato@gmail.com]
+
+
+Desfrute da experiência Hanami Café! ☕✨
