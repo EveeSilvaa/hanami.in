@@ -22,8 +22,8 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-xl font-bold mb-4">Localização</h3>
-            <p>Av. Barão do Rio Branco - Betânia</p>
-            <p>CEP: 68741-515</p>
+            <p>Av.nome - cidade</p>
+            <p>CEP: 0000-0000</p>
           </motion.div>
           
           <motion.div
@@ -33,12 +33,12 @@ const Footer = () => {
           >
             <h3 className="text-xl font-bold mb-4">Redes Sociais</h3>
             <a 
-              href="https://instagram.com/hanami.in" 
+              href="https://instagram.com/nomeficticio" 
               className="block mb-2 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @hanami.in
+              @nomeficticio
             </a>
             <a 
               href="https://instagram.com/yvi_maz" 
