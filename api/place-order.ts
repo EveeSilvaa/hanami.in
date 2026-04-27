@@ -41,30 +41,30 @@ export default async function handler(req: any, res: any) {
 
   // 2. Format Items for Telegram
   const itemsText = items.map((item: any) => 
-    `➡ *${item.quantity}x* ${item.name} \n   └─ _${(item.price * item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}_`
+    `➡ <b>${item.quantity}x</b> ${item.name} \n   └─ <i>${(item.price * item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</i>`
   ).join('\n\n');
 
   // 3. Construct Telegram Message with Buttons
-  const message = `━━━━━ 🛍 *NOVO PEDIDO* ━━━━━\n\n` +
-    `👤 *Cliente:* ${customer_name}\n` +
-    `📍 *Mesa:* ${table_number}\n` +
-    `💳 *Pagamento:* ${payment_method.toUpperCase()}\n\n` +
-    `📋 *ITENS DO PEDIDO:*\n` +
+  const message = `━━━━━ 🛍 <b>NOVO PEDIDO</b> ━━━━━\n\n` +
+    `👤 <b>Cliente:</b> ${customer_name}\n` +
+    `📍 <b>Mesa:</b> ${table_number}\n` +
+    `💳 <b>Pagamento:</b> ${payment_method.toUpperCase()}\n\n` +
+    `📋 <b>ITENS DO PEDIDO:</b>\n` +
     `────────────────────\n` +
     `${itemsText}\n` +
     `────────────────────\n\n` +
-    `💰 *TOTAL: ${(total_price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*\n\n` +
+    `💰 <b>TOTAL: ${(total_price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</b>\n\n` +
     `━━━━━━━━━━━━━━━━━━━━\n` +
-    `⏰ _Enviado às: ${new Date().toLocaleTimeString('pt-BR')}_`;
+    `⏰ <i>Enviado às: ${new Date().toLocaleTimeString('pt-BR')}</i>`;
 
   try {
-    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    const tgResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         chat_id: chatId,
         text: message,
-        parse_mode: 'Markdown',
+        parse_mode: 'HTML',
         reply_markup: {
           inline_keyboard: [
             [
@@ -75,9 +75,15 @@ export default async function handler(req: any, res: any) {
         }
       })
     });
+    
+    if (!tgResponse.ok) {
+        const errorData = await tgResponse.text();
+        console.error('Telegram API falhou. Retorno do Telegram:', errorData);
+    }
   } catch (err) {
-    console.error('Telegram notification failed:', err);
+    console.error('Telegram fetch failed (rede/dns):', err);
   }
+
 
   return res.status(200).json({ orderId: order.id })
 }
