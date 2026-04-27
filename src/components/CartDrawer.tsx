@@ -1,7 +1,7 @@
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
 import { useCart } from '../contexts/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
 import { useState } from 'react';
 
 export const CartDrawer = () => {
@@ -18,27 +18,66 @@ export const CartDrawer = () => {
   } = useCart();
 
   const [tableNumber, setTableNumber] = useState('');
+  const [customerName, setCustomerName] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('dinheiro');
 
-  const sendToWhatsApp = () => {
-    if (!tableNumber) {
-      alert('Por favor, informe o número da mesa');
+  const [isSending, setIsSending] = useState(false);
+
+  const sendOrderToTelegram = async () => {
+    if (!tableNumber || !customerName) {
+      alert('Por favor, informe seu nome e o número da mesa');
       return;
     }
 
-    const phone = "559191459148";
+    setIsSending(true);
+
+    const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
     const itemsText = cart.map(item => 
-      `➡ ${item.quantity}x ${item.name} - ${formatCurrency(item.price * item.quantity)}`
-    ).join('\n');
+      `➡ *${item.quantity}x* ${item.name} \n   └─ _${formatCurrency(item.price * item.quantity)}_`
+    ).join('\n\n');
     
-    const message = `*Olá hanami! Gostaria de pedir:*\n\n` +
-      `*Mesa:* ${tableNumber}\n` +
-      `*Forma de Pagamento:* ${paymentMethod}\n\n` +
-      `*Itens do Pedido:*\n${itemsText}\n\n` +
-      `*Total:* ${formatCurrency(totalPrice)}\n\n` +
-      `Obrigado pelo seu pedido!`;
-    
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `━━━━━ 🛍 *NOVO PEDIDO* ━━━━━\n\n` +
+      `👤 *Cliente:* ${customerName}\n` +
+      `📍 *Mesa:* ${tableNumber}\n` +
+      `💳 *Pagamento:* ${paymentMethod.toUpperCase()}\n\n` +
+      `📋 *ITENS DO PEDIDO:*\n` +
+      `────────────────────\n` +
+      `${itemsText}\n` +
+      `────────────────────\n\n` +
+      `💰 *TOTAL: ${formatCurrency(totalPrice)}*\n\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n` +
+      `⏰ _Enviado às: ${new Date().toLocaleTimeString('pt-BR')}_`;
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'Markdown',
+        }),
+      });
+
+      if (response.ok) {
+        alert('✅ Pedido enviado com sucesso! O atendente foi notificado.');
+        toggleCart();
+        // Opcional: Limpar o carrinho aqui se desejar
+      } else {
+        const errorData = await response.json();
+        console.error('Telegram API Error:', errorData);
+        throw new Error('Falha ao enviar o pedido');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar:', error);
+      alert('❌ Erro ao enviar pedido. Por favor, fale com um atendente diretamente.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const getImagePath = (item: any) => {
@@ -101,17 +140,31 @@ export const CartDrawer = () => {
                   </div>
                 ) : (
                   <>
-                    <div className="mb-6">
-                      <label className="block text-sm font-medium text-amber-700 mb-1">
-                        Número da Mesa
-                      </label>
-                      <input
-                        type="text"
-                        value={tableNumber}
-                        onChange={(e) => setTableNumber(e.target.value)}
-                        className="w-full p-2 border border-amber-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
-                        placeholder="Ex: 5"
-                      />
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div>
+                        <label className="block text-sm font-medium text-amber-700 mb-1">
+                          Seu Nome
+                        </label>
+                        <input
+                          type="text"
+                          value={customerName}
+                          onChange={(e) => setCustomerName(e.target.value)}
+                          className="w-full p-2 border border-amber-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
+                          placeholder="Ex: João"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-amber-700 mb-1">
+                          Nº da Mesa
+                        </label>
+                        <input
+                          type="text"
+                          value={tableNumber}
+                          onChange={(e) => setTableNumber(e.target.value)}
+                          className="w-full p-2 border border-amber-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
+                          placeholder="Ex: 5"
+                        />
+                      </div>
                     </div>
 
                     <div className="mb-6">
@@ -188,11 +241,21 @@ export const CartDrawer = () => {
                     <span>{formatCurrency(totalPrice)}</span>
                   </div>
                   <button
-                    onClick={sendToWhatsApp}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                    onClick={sendOrderToTelegram}
+                    disabled={isSending}
+                    className={`w-full ${isSending ? 'bg-gray-400' : 'bg-[#0088cc] hover:bg-[#0077b5]'} text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95`}
                   >
-                    <FaWhatsapp size={20} />
-                    Enviar Pedido
+                    {isSending ? (
+                      <span className="flex items-center gap-2">
+                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Enviando...
+                      </span>
+                    ) : (
+                      <>
+                        <FaTelegramPlane size={20} />
+                        Enviar Pedido
+                      </>
+                    )}
                   </button>
                 </div>
               )}
