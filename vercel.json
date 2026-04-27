@@ -8,9 +8,18 @@
         "distDir": "dist",
         "includeFiles": ["public/**"]
       }
+    },
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
     }
+
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
