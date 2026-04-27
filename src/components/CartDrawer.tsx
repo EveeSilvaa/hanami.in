@@ -31,45 +31,33 @@ export const CartDrawer = () => {
 
     setIsSending(true);
 
-    const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-
-    const itemsText = cart.map(item => 
-      `➡ *${item.quantity}x* ${item.name} \n   └─ _${formatCurrency(item.price * item.quantity)}_`
-    ).join('\n\n');
-    
-    const message = `━━━━━ 🛍 *NOVO PEDIDO* ━━━━━\n\n` +
-      `👤 *Cliente:* ${customerName}\n` +
-      `📍 *Mesa:* ${tableNumber}\n` +
-      `💳 *Pagamento:* ${paymentMethod.toUpperCase()}\n\n` +
-      `📋 *ITENS DO PEDIDO:*\n` +
-      `────────────────────\n` +
-      `${itemsText}\n` +
-      `────────────────────\n\n` +
-      `💰 *TOTAL: ${formatCurrency(totalPrice)}*\n\n` +
-      `━━━━━━━━━━━━━━━━━━━━\n` +
-      `⏰ _Enviado às: ${new Date().toLocaleTimeString('pt-BR')}_`;
-
     try {
-      const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      const response = await fetch('/api/place-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-          parse_mode: 'Markdown',
+          customer_name: customerName,
+          table_number: tableNumber,
+          payment_method: paymentMethod,
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+          })),
+          total_price: totalPrice,
         }),
       });
 
       if (response.ok) {
-        alert('✅ Pedido enviado com sucesso! O atendente foi notificado.');
+        const { orderId } = await response.json();
         toggleCart();
-        // Opcional: Limpar o carrinho aqui se desejar
+        window.location.href = `/track/${orderId}`;
       } else {
         const errorData = await response.json();
-        console.error('Telegram API Error:', errorData);
+        console.error('API Error:', errorData);
         throw new Error('Falha ao enviar o pedido');
       }
     } catch (error) {

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import AnimatedRoute from './components/AnimatedRoute';
 import AboutPage from './pages/AboutPage';
+import OrderTracking from './pages/OrderTracking';
 import { CartProvider } from './contexts/CartContext';
 
 
@@ -30,6 +31,11 @@ const App = () => {
             <Route path="/sobre" element={
               <AnimatedRoute>
                 <AboutPage />
+              </AnimatedRoute>
+            } />
+            <Route path="/track/:orderId" element={
+              <AnimatedRoute>
+                <OrderTracking />
               </AnimatedRoute>
             } />
           </Routes>
