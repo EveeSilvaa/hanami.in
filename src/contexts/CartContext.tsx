@@ -12,7 +12,7 @@ interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void;
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
   removeItem: (id: string) => void;
@@ -47,20 +47,19 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return parseFloat((a + b).toFixed(2));
   };
 
-  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (item: Omit<CartItem, 'quantity'>, quantity: number = 1) => {
     const existingItemIndex = cart.findIndex(i => i.id === item.id);
     
     if (existingItemIndex >= 0) {
       const newCart = [...cart];
       newCart[existingItemIndex] = {
         ...newCart[existingItemIndex],
-        quantity: newCart[existingItemIndex].quantity + 1
+        quantity: newCart[existingItemIndex].quantity + quantity
       };
       saveCart(newCart);
     } else {
-      saveCart([...cart, { ...item, quantity: 1 }]);
+      saveCart([...cart, { ...item, quantity }]);
     }
-    setIsCartOpen(true);
   };
 
   const totalItems = useMemo(() => cart.reduce((sum, item) => sum + item.quantity, 0), [cart]);
